@@ -96,7 +96,7 @@ module MetalicRatio
   ].each do | instance_method_name |
     eval <<-DEF
       def #{ instance_method_name }( *args )
-        ::MatalicRatio.send( instance_method_name , *args )
+        ::MetalicRatio.send( instance_method_name , *args )
       end
     DEF
   end
