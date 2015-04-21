@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe MetalicRatio do
   it 'has a version number' do
-    expect(MetalicRatio::VERSION).to eq( "0.0.1beta" )
+    expect(MetalicRatio::VERSION).to eq( "0.0.1rc2" )
   end
   
   it 'has a constants as class methods' do
