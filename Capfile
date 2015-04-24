@@ -4,7 +4,7 @@ require 'capistrano/setup'
 # Include default deployment tasks
 require 'capistrano/deploy'
 
-require ::File.expand_path( "#{ ::File.dirname( __FILE__ ) }/../deployment/lib/deployment.rb" )
+require 'deployer'
 
 # Include tasks from other gems included in your Gemfile
 #
@@ -30,5 +30,4 @@ Dir.glob('lib/capistrano/tasks/*.rake').each { |r| import r }
 
 Rake::Task[:production].invoke
 invoke :production
-
-cap_set
+set_cap_tasks_from_deployer
