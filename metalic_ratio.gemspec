@@ -32,7 +32,5 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "rspec"
 
   spec.add_development_dependency "capistrano"
-  spec.add_development_dependency "capistrano_my_own_settings"
-
-  # spec.add_runtime_dependency "activesupport", ">= 4.2.1"
+  spec.add_development_dependency "activesupport", ">= 4.2.1"
 end
