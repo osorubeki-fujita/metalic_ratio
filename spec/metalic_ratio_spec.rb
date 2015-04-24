@@ -4,7 +4,7 @@ require 'versionomy'
 this_file = ::File.expand_path( ::File.dirname( __FILE__ ) )
 latest_version = open( "#{ this_file }/../LatestVersion" , "r:utf-8" ).read
 
-version = "0.1.1"
+version = "0.1.2"
 
 describe MetalicRatio do
   it "has a version number \'#{ version }\'" do
