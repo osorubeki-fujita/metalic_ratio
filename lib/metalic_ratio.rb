@@ -1,9 +1,12 @@
 require "metalic_ratio/version"
 
+# require "active_support"
+# require "active_support/concern"
+
 # This namespace contains methods returning metalic ratio numbers.
 # @note 貴金属比（黄金比 1.618... など）を返すメソッドを格納する名前空間
 module MetalicRatio
-  
+
   # 黄金比 (golden ratio)
   # @return [Float]
   # @example
@@ -47,24 +50,33 @@ module MetalicRatio
   #   MetalicRatio.golden_angle_deg => 137.50776405003785
   #   MetalicRatio.golden_angle_degree => 137.50776405003785
   #   MetalicRatio.golden_angle( :deg ) => 137.50776405003785
+  #   MetalicRatio.golden_angle( "deg" ) => 137.50776405003785
+  #   MetalicRatio.golden_angle( :degree ) => 137.50776405003785
   #   MetalicRatio.golden_angle( "degree" ) => 137.50776405003785
   #   MetalicRatio::GOLDEN_ANGLE_DEG => 137.50776405003785
+  #   MetalicRatio::GOLDEN_ANGLE_DEGREE => 137.50776405003785
   def self.golden_angle_deg
     360 / ( 1 + golden_ratio )
   end
 
-  # 黄金角 [rad]
+  # 黄金角 (golden angle) [rad]
   # @return [Float]
   # @example
   #   MetalicRatio.golden_angle_rad => 2.399963229728653 ( = 0.7639320225002102 * pi )
   #   MetalicRatio.golden_angle_radian => 2.399963229728653
   #   MetalicRatio.golden_angle( :rad ) => 2.399963229728653
+  #   MetalicRatio.golden_angle( "rad" ) => 2.399963229728653
+  #   MetalicRatio.golden_angle( :radian ) => 2.399963229728653
   #   MetalicRatio.golden_angle( "radian" ) => 2.399963229728653
   #   MetalicRatio::GOLDEN_ANGLE_RAD => 2.399963229728653
+  #   MetalicRatio::GOLDEN_ANGLE_RADIAN => 2.399963229728653
   def self.golden_angle_rad
     2 * Math::PI / ( 1 + golden_ratio )
   end
-  
+
+  # 黄金角 (golden angle) [deg/rad]
+  # @param type [String or Symbol] set "deg" , "degree" , "rad" or "radian" (or their symbols)
+  # @return [Float]
   def self.golden_angle( type )
     raise "Error" unless [ "deg" , "degree" , "rad" , "radian" ].include?( type.to_s )
     case type.to_s
@@ -77,6 +89,10 @@ module MetalicRatio
 
   # 貴金属比 (metalic ratio)
   # @return [Float]
+  # @example
+  #   MetalicRatio.metalic_ratio(5) => 5.192582403567252
+  #   MetalicRatio.get(5) => 5.192582403567252
+  #   MetalicRatio.of(5) => 5.192582403567252
   def self.metalic_ratio(n)
     ( n + Math.sqrt( n ** 2 + 4 ) ) * 1.0 / 2
   end
@@ -96,10 +112,12 @@ module MetalicRatio
   ].each do | instance_method_name |
     eval <<-DEF
       def #{ instance_method_name }( *args )
-        ::MetalicRatio.send( instance_method_name , *args )
+        ::MetalicRatio.send( :#{ instance_method_name } , *args )
       end
     DEF
   end
+
+  # @!group When consts are not defined
 
   MISSING_CONSTS = [
     :golden_ratio , :silver_ratio , :bronze_ratio , :yamato_ratio ,
@@ -123,5 +141,7 @@ module MetalicRatio
       super( const_name , *args )
     end
   end
+
+  # @!endgroup
 
 end
