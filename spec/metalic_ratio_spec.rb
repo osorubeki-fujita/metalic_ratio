@@ -1,14 +1,15 @@
 require 'spec_helper'
+require 'versionomy'
 
 this_file = ::File.expand_path( ::File.dirname( __FILE__ ) )
 latest_version = open( "#{ this_file }/../LatestVersion" , "r:utf-8" ).read
 
-version = "0.1.0"
+version = "0.1.1"
 
 describe MetalicRatio do
   it "has a version number \'#{ version }\'" do
-    expect(MetalicRatio::VERSION).to eq( version )
-    expect( MetalicRatio::VERSION >= latest_version ).to eq( true )
+    expect( MetalicRatio::VERSION ).to eq( version )
+    expect( Versionomy.parse( MetalicRatio::VERSION ) >= Versionomy.parse( latest_version ) ).to eq( true )
   end
 
   it 'has a constants as class methods' do
