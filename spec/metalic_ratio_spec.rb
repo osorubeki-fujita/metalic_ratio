@@ -8,7 +8,7 @@ version = "0.1.0"
 describe MetalicRatio do
   it "has a version number \'#{ version }\'" do
     expect(MetalicRatio::VERSION).to eq( version )
-    expect( MetalicRatio::VERSION > latest_version ).to eq( true )
+    expect( MetalicRatio::VERSION >= latest_version ).to eq( true )
   end
 
   it 'has a constants as class methods' do
