@@ -32,6 +32,5 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "rspec"
 
   spec.add_development_dependency "capistrano"
-  spec.add_development_dependency "deployer", ">= 0.1.0"
-  spec.add_development_dependency "versionomy", ">= 0.4.4"
+  spec.add_development_dependency "deployer", ">= 0.1.1"
 end
