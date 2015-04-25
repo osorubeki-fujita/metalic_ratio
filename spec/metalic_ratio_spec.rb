@@ -7,7 +7,7 @@ version = "0.1.2"
 describe MetalicRatio do
   it "has a version number \'#{ version }\'" do
     expect( MetalicRatio::VERSION ).to eq( version )
-    expect( ::Deployer.version_check( MetalicRatio::Version , this_filename ) ).to eq( true )
+    expect( ::Deployer.version_check( MetalicRatio::VERSION , spec_filename ) ).to eq( true )
   end
 
   it 'has a constants as class methods' do
