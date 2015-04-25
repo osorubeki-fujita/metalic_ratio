@@ -1,8 +1,8 @@
 # config valid only for current version of Capistrano
 lock '3.4.0'
 
-set :application, 'gem_metalic_ratio'
-set :repo_url, 'https://github.com/osorubeki-fujita/golden_ratio.git'
+set :application , 'gem_metalic_ratio'
+set :repo_url , 'https://github.com/osorubeki-fujita/golden_ratio.git'
 
 set :pj_dir , ::File.expand_path( "#{ ::File.dirname( __FILE__ ) }/.." )
 set :github_remote_name , :origin
