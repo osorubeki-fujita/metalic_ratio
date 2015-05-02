@@ -11,7 +11,7 @@ Gem::Specification.new do |spec|
   spec.summary = "This gem provides \'metalic ratio\' constnts (such as \'Golden Ratio\' 1.618...) as method and constants. 貴金属比（黄金比 1.618... など）を扱う gem"
     # %q{TODO: Write a short summary. Required.}
   # spec.description = %q{TODO: Write a longer description. Optional.}
-  spec.homepage = "https://github.com/osorubeki-fujita/golden_ratio"
+  spec.homepage = "https://github.com/osorubeki-fujita/metalic_ratio"
   spec.license = "MIT"
 
   # Prevent pushing this gem to RubyGems.org by setting 'allowed_push_host', or
